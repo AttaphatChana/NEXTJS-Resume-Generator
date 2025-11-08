@@ -1,26 +1,207 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Custom CSS from your friend's tailwind.css */
+@layer base {
+  body {
+    font-family: var(--font-arimo), Arial, Helvetica, sans-serif;
+    line-height: 1.25;
+    max-width: 8.5in;
+    /* Standard paper width */
+    margin: 0 auto;
+    padding: 20px;
+    color: #000000;
+    font-size: 9pt;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  header>h1 {
+    font-size: 14pt;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  header p {
+    margin: 5px 0;
+    font-style: italic;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+
+  /* Contact Info */
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+    font-size: 9.2pt;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* Section Styles */
+  .section-title {
+    font-size: 10pt;
+    text-transform: uppercase;
+    font-family: var(--font-arimo), 'Arimo', Arial, Helvetica, sans-serif;
+    font-variation-settings: 'wght' 700, 'wdth' 100;
+    letter-spacing: 0.25px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
+  }
+
+  .section-list {
+    @apply ml-1;
+  }
+
+  .item-title {
+    font-weight: bold;
+    font-size: 9.5pt;
+  }
+
+  .item-content {
+    @apply ml-3;
+  }
+
+  .section {
+    @apply mb-2 last:mb-0;
+  }
+
+  /* Project Styles */
+  .project {
+    @apply mb-2 last:mb-0;
+  }
+
+  .project-title a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .project-title a:hover {
+    text-decoration: underline;
+  }
+
+  .project-tech {
+    font-variation-settings: 'wght' 500, 'wdth' 80;
+    text-transform: uppercase;
+    font-size: 9.8px;
+    letter-spacing: 0.5px;
+    font-family: var(--font-noto-mono), 'Noto Sans Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: rgba(0, 0, 0, 0.908);
+    @apply mb-[1px];
+  }
+
+  .project ul {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+  }
+
+  .project li {
+    margin-bottom: 3px;
+  }
+
+  /* Date and Location Styles */
+  .item-date,
+  .education-item-date {
+    font-variation-settings: 'wght' 400, 'wdth' 100;
+    font-size: 11.5px;
+    letter-spacing: 0.2px;
+  }
+
+  .education-item-date {
+    font-variation-settings: 'wght' 600, 'wdth' 100;
+  }
+
+  .work-item-position {
+    font-variation-settings: 'wght' 450, 'wdth' 100;
+  }
+
+  .item-location {
+    font-variation-settings: 'wght' 400, 'wdth' 100;
+    font-size: 11.5px;
+    letter-spacing: 0.2px;
+  }
+
+  /* Skills Section */
+  .skill-group {
+    @apply mb-[4px] last:mb-0;
+  }
+
+  .skill-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .keyword {
+    padding: 2px 4px;
+    font-family: var(--font-noto-mono), 'Noto Sans Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  /* Work Experience */
+  .work-item {
+    @apply mb-1 last:mb-0;
+  }
+
+  .work-item p {
+    margin: 3px 0;
+  }
+
+  /* Education Section */
+  .education-item {
+    @apply mb-[4px] last:mb-0;
+  }
+
+  .education-item p {
+    margin: 3px 0;
+  }
+
+  /* List Styles */
+  ul {
+    margin: 5px 0;
+    padding-left: 20px;
+  }
+
+  .item-content>ul>li {
+    list-style-type: square;
+    margin-bottom: 5px;
+  }
+
+  li>strong {
+    font-family: var(--font-arimo), 'Arimo', Arial, Helvetica, sans-serif;
+    font-variation-settings: 'wght' 600;
+  }
+
+  /* Utility Classes */
+  .small {
+    font-size: 10pt;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    padding: 0;
+  }
+
+  .project {
+    break-inside: avoid;
+  }
+
+  .no-print {
+    display: none;
+  }
 }
